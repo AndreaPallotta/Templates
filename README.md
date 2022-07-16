@@ -1,6 +1,6 @@
 # Templates
 
-### This repository contains a list of templates for popular Web Development frameworks:
+## This repository contains a list of templates for popular Web Development frameworks:
 
 - `Express JS`
 - `Socket.IO` (coming soon)
