@@ -22,15 +22,15 @@ app.use(morganMid);
 
 // CORS pre-flight. Add before the rest of the routes.
 app.options('*', (_, res) => {
-  res.send(200);
+    res.send(200);
 });
 
 app.use('/test', testRoutes);
 
 app.listen(expressConfig.PORT, expressConfig.HOSTNAME, () => {
-  Logger.debug(
-    `Server started on ${expressConfig.HOSTNAME || 'localhost'}:${
-      expressConfig.PORT
-    }`
-  );
+    Logger.debug(
+        `Server started on ${expressConfig.HOSTNAME || 'localhost'}:${
+            expressConfig.PORT
+        }`
+    );
 });
