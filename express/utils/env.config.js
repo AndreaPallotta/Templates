@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env' });
 
 const { NODE_ENV, PORT, HOST, LOG_LEVEL, SECRET } = process.env;
 
