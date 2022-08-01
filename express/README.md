@@ -104,3 +104,16 @@
     ```bash
     docker kill <container id>
     ```
+
+
+## How to add new absolute paths
+
+Within the application, you can see that most of the imports are absolute (i.e. `require(@<path-keyword>/)`).
+
+To add a new folder to the paths:
+
+1. Open package.json
+2. Locate the `_moduleAliases` section (below the `scripts` object).
+3. Add a new entry where:
+   - The key is the `@<path-keywork>`. For example `@log` is the alias for the `logging` folder.
+   - The value is the relative path to the folder. For example `logging/` refers to `express/logging`.
