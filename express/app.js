@@ -4,9 +4,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 
-const Logger = require('./logging/logger');
 const morganMid = require('./logging/morgan');
-const { expressConfig } = require('./utils/env.config');
 
 const testRoutes = require('./endpoints/test/test.routes');
 
@@ -27,10 +25,4 @@ app.options('*', (_, res) => {
 
 app.use('/test', testRoutes);
 
-app.listen(expressConfig.PORT, expressConfig.HOSTNAME, () => {
-    Logger.debug(
-        `Server started on ${expressConfig.HOSTNAME || 'localhost'}:${
-            expressConfig.PORT
-        }`
-    );
-});
+module.exports = app;

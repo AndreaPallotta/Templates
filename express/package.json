@@ -4,12 +4,24 @@
   "description": "*Insert Description*",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --quiet index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --quiet server.js",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
   },
-  "keywords": [],
-  "author": "*Insert Your Name*",
-  "license": "ISC",
+  "keywords": [
+    "express",
+    "template",
+    "server"
+  ],
+  "author": "Andrea Pallotta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaPallotta/Templates.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AndreaPallotta/Templates/issues"
+  },
+  "homepage": "https://github.com/AndreaPallotta/Templates/tree/master/express#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -22,7 +34,19 @@
     "winston": "^3.8.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.19.0",
-    "nodemon": "^2.0.19"
+    "jest": "^28.1.3",
+    "nodemon": "^2.0.19",
+    "superagent": "^8.0.0",
+    "supertest": "^6.2.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

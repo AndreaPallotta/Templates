@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@routes/*": [
+                "./endpoints/*"
+            ],
+            "@log/*": [
+                "./logging/*"
+            ],
+            "@errors/*": [
+                "./errorHandling/*"
+            ],
+            "@utils/*": [
+                "./utils/*"
+            ],
+            "@auth/*": [
+                "./auth/*"
+            ],
+            "@r-test/*": [
+                "./endpoints/test"
+            ]
+        }
+    }
+}
