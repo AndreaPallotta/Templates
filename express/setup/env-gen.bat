@@ -15,9 +15,9 @@ IF EXIST %file% (
 ) else (
     ECHO %file_name% does not exist. Creating it...
     (
-        ECHO PORT=8081
-        ECHO HOST="*INSERT HOST IP/NAME OR DELETE IF LOCALHOST*"
-        ECHO LOG_LEVEL="*INSERT LOG LEVEL (error, warn, info, http, debug) OR DELETE FOR DEFAULT (debug for dev/warn for prod)"
+        ECHO PORT=8081 # Must match the port exposed in the dockerfile. Remove for default: 8081
+        ECHO HOST=localhost # Hostname/IP. Remove for default: localhost
+        ECHO LOG_LEVEL=debug # Log Level Depth. Remove for default: 'debug' for dev and 'warn' for prod
         ECHO SECRET="%secret%"
     ) > %file%
     ECHO %file_name% created with default content.

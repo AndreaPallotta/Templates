@@ -10,9 +10,9 @@ if [ -f "$file" ]; then
 else
     echo "$file_name does not exist. Creating it..."
 cat << EOT >> $file
-PORT=8081
-HOST="*INSERT HOST IP/NAME OR DELETE IF LOCALHOST*"
-LOG_LEVEL="*INSERT LOG LEVEL (error, warn, info, http, debug) OR DELETE FOR DEFAULT (debug for dev/warn for prod)"
+PORT=8081 # Must match the port exposed in the dockerfile. Remove for default: 8081
+HOST=localhost # Hostname/IP. Remove for default: localhost
+LOG_LEVEL=debug # Log Level Depth. Remove for default: 'debug' for dev and 'warn' for prod
 SECRET="$secret"
 EOT
     echo "$file_name created with default content."
