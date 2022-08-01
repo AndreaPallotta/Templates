@@ -35,7 +35,7 @@
 
 4. Modify the .env file with your information
 
-5. Install packages
+5. Install NPM packages
 
     ```bash
     npm install
