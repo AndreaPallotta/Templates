@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = require('../utils/env.config');
-const Logger = require('../logging/logger');
-const HTTPError = require('../errorHandling/HTTPError');
+const { JWT_SECRET } = require('@utils/env.config');
+const Logger = require('@log/logger');
+const HTTPError = require('@errors/HTTPError');
 
 const generateJWTExpiration = (time = 6, format = 'h') => {
     switch (format) {

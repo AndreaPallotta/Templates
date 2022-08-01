@@ -1,5 +1,5 @@
 const { GenericError } = require('./GenericError');
-const Logger = require('../logging/logger');
+const Logger = require('@log/logger');
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (err, req, res, next) => {

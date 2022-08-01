@@ -1,5 +1,5 @@
 const morgan = require('morgan');
-const { isDev } = require('../utils/env.config');
+const { isDev } = require('@utils/env.config');
 const Logger = require('./logger');
 
 const stream = {

@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { getLogLevel } = require('../utils/env.config');
+const { getLogLevel } = require('@utils/env.config');
 
 const levels = {
     error: 0,

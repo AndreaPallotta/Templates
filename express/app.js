@@ -4,9 +4,9 @@ const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 
-const morganMid = require('./logging/morgan');
+const morganMid = require('@log/morgan');
 
-const testRoutes = require('./endpoints/test/test.routes');
+const testRoutes = require('@routes/test/test.routes');
 
 const app = express();
 app.use('/public', express.static('public'));

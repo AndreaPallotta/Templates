@@ -1,5 +1,5 @@
-const Logger = require('../../logging/logger');
-const HTTPError = require('../../errorHandling/HTTPError');
+const Logger = require('@log/logger')
+const HTTPError = require('@errors/HTTPError');
 
 exports.testGet = async (req, res) => {
     const { queryParam1, queryParam2 } = req.query;

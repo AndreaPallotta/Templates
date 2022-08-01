@@ -1,6 +1,8 @@
-const app = require('./app');
-const Logger = require('./logging/logger');
-const { expressConfig } = require('./utils/env.config');
+require('module-alias/register');
+
+const app = require('@root/app');
+const Logger = require('@log/logger');
+const { expressConfig } = require('@utils/env.config');
 
 app.listen(expressConfig.PORT, expressConfig.HOSTNAME, () => {
     Logger.debug(
