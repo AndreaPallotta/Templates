@@ -14,6 +14,7 @@ PORT=8081 # Must match the port exposed in the dockerfile. Remove for default: 8
 HOST=localhost # Hostname/IP. Remove for default: localhost
 LOG_LEVEL=debug # Log Level Depth. Remove for default: 'debug' for dev and 'warn' for prod
 SECRET="$secret"
+CACHE_TIME="2 minutes"
 EOT
     echo "$file_name created with default content."
 fi

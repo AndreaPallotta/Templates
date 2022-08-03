@@ -19,6 +19,7 @@ IF EXIST %file% (
         ECHO HOST=localhost # Hostname/IP. Remove for default: localhost
         ECHO LOG_LEVEL=debug # Log Level Depth. Remove for default: 'debug' for dev and 'warn' for prod
         ECHO SECRET="%secret%"
+        ECHO CACHE_TIME="2 minutes"
     ) > %file%
     ECHO %file_name% created with default content.
 )

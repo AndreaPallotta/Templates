@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 const morganMid = require('@log/morgan');
+const cacher = require('@utils/cache');
 const { apiLimiter } = require('@auth/rateLimiter');
 
 const testRoutes = require('@routes/test/test.routes');
@@ -19,6 +20,7 @@ app.use(compression());
 app.use(helmet());
 app.use(cors());
 app.use(morganMid);
+app.use(cacher);
 app.use(apiLimiter);
 
 // CORS pre-flight. Add before the rest of the routes.

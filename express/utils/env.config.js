@@ -1,6 +1,6 @@
 require('dotenv').config({ path: '.env' });
 
-const { NODE_ENV, PORT, HOST, LOG_LEVEL, SECRET } = process.env;
+const { NODE_ENV, PORT, HOST, LOG_LEVEL, SECRET, CACHE_TIME } = process.env;
 
 const isDev = (NODE_ENV || 'development') === 'development';
 
@@ -22,3 +22,4 @@ exports.isDev = isDev;
 exports.expressConfig = expressConfig;
 exports.JWT_SECRET = SECRET;
 exports.getLogLevel = getLogLevel;
+exports.CACHE_TIME = CACHE_TIME || '2 minutes'
