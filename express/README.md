@@ -116,3 +116,40 @@ To add a new folder to the paths:
 3. Add a new entry where:
    - The key is the `@<path-keyword>`. For example `@log` is the alias for the `logging` folder.
    - The value is the relative path to the folder. For example `logging/` refers to `express/logging`.
+
+Test for security:
+
+1. Install snyk
+
+    ```bash
+    [sudo] npm install -g snyk
+    ```
+
+2. Test for vulnerabilities
+
+     ```bash
+    # Package vulnerabilities
+    npm audit
+    # Generic vulnerabilities
+    snyk test
+    # If you are using SQL-based DBs
+    python sqlmap.py --help # https://www.sqlinjection.net/sqlmap/tutorial/
+    ```
+
+3. Patch snyk vulnerabilities
+
+    ```bash
+    snyk wizard
+    ```
+
+4. Extra security
+
+   ```bash
+    # Use safe-regex to prevent regex DDoS attacks
+    npm install safe-regex
+    ```
+
+    ```js
+    const safe = require('safe-regex');
+    safe(*regex*);
+    ```
