@@ -33,7 +33,7 @@
     ./setup/env-gen.bat # WINDOWS
     ```
 
-4. Modify the .env file with your information
+4. Modify the .env file with your preferences
 
 5. Install NPM packages
 
