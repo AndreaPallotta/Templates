@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Snackbar from '@mui/material/Snackbar';
-import Alert from './AlertRef';
+import Alert from '@/components/AlertRef';
 
 const Notification = (props) => {
   const { open, onClose, message, severity } = props;

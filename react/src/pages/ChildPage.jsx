@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import useNotification from '../hooks/useNotification';
+import useNotification from '@/hooks/useNotification';
 
 const ChildPage = () => {
   const [showNotification] = useNotification();
