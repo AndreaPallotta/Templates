@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Snackbar from '@mui/material/Snackbar';
 import Alert from '@/components/AlertRef';
+import Snackbar from '@mui/material/Snackbar';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Notification = (props) => {
   const { open, onClose, message, severity } = props;

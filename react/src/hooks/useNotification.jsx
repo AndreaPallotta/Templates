@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
 import NotificationContext from '@/contexts/Notification';
+import { useContext, useState } from 'react';
 
 const useNotification = (isDefault) => {
   const { notification, setNotification } = useContext(NotificationContext);

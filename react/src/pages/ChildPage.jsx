@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from '@mui/material';
 import useNotification from '@/hooks/useNotification';
+import { Button } from '@mui/material';
+import React from 'react';
 
 const ChildPage = () => {
   const [showNotification] = useNotification();
@@ -10,7 +10,7 @@ const ChildPage = () => {
         showNotification('test3', 'success');
       }}
     >
-      Click Me Too
+      Click Me
     </Button>
   );
 };
