@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { app } from '@/utils/env';
 import Notification from '@/components/Notification';
-import useNotification from '@/hooks/useNotification';
 import NotificationContext from '@/contexts/Notification';
+import useNotification from '@/hooks/useNotification';
 import ChildPage from '@/pages/ChildPage';
+import { app } from '@/utils/env';
+import React, { useEffect } from 'react';
 
 function App() {
   const [, close, notification, setNotification] = useNotification(true);

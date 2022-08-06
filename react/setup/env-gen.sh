@@ -16,6 +16,7 @@ VITE_APP_PORT=8080 # Client's port
 VITE_SERVER_HOST="localhost" # Server's hostname/ip
 VITE_SERVER_PORT=8081 # Server's port
 VITE_USE_HTTPS="false" # Use HTTPS
+VITE_USE_JWT="false" # Use JWT
 EOT
     echo "$file_name created with default content."
 fi

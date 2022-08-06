@@ -21,6 +21,7 @@ IF EXIST %file% (
         ECHO VITE_SERVER_HOST="localhost" # Server's hostname/ip
         ECHO VITE_SERVER_PORT=8081 # Server's port
         ECHO VITE_USE_HTTPS="false" # Use HTTPS
+        ECHO VITE_USE_JWT="false" # Use JWT
     ) > %file%
     ECHO %file_name% created with default content.
 )

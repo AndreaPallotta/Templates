@@ -5,11 +5,15 @@ const {
   VITE_SERVER_HOST,
   VITE_SERVER_PORT,
   VITE_USE_HTTPS,
+  VITE_USE_JWT,
+  MODE,
 } = import.meta.env;
 
 export const app = {
   name: VITE_APP_NAME || 'Default title',
-  isHttps: VITE_USE_HTTPS === 'true',
+  isDev: MODE === 'development',
+  prefix: VITE_USE_HTTPS === 'true' ? 'https://' : 'http://',
+  useJWT: VITE_USE_JWT === 'true',
 };
 
 export const client = {
