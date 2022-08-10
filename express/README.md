@@ -105,6 +105,8 @@
     docker kill <container id>
     ```
 
+---
+
 ## How to add new absolute paths
 
 Within the application, you can see that most of the imports are absolute (i.e. `require(@<path-keyword>/)`).
@@ -117,7 +119,30 @@ To add a new folder to the paths:
    - The key is the `@<path-keyword>`. For example `@log` is the alias for the `logging` folder.
    - The value is the relative path to the folder. For example `logging/` refers to `express/logging`.
 
-Test for security:
+---
+
+## Testing
+
+### Unit tests
+
+1. (Optional) In the `tests` folder, add new tests if needed. Each file needs formatted as `<filename>.test.js` in order for `Jest` to include it in the test suite.
+
+2. (Optional) Modify how the test suite is executed:
+    - Modify `jest.config.js`
+    - If you want to use a different file or flags, modify the `test` npm command in `packages.json`.
+
+    > **_NOTE:_**
+    Removing `cross-env NODE_ENV=test` from the npm command will cause the node environment to be `development`.
+
+3. Run tests
+
+    ```bash
+        npm run tests
+    ```
+
+---
+
+### Security Tests
 
 1. Install snyk
 

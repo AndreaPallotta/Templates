@@ -20,6 +20,10 @@ exports.testGet = async (req, res) => {
 exports.testPost = async (req, res) => {
     const { bodyParam1, bodyParam2 } = req.body;
 
+    if (Object.keys(req.body).length === 0) {
+        return HTTPError.Err(400, undefined, res);
+    }
+
     if (bodyParam1 === 'post request' && bodyParam2 === false) {
         return HTTPError.Err(500, undefined, res);
     }

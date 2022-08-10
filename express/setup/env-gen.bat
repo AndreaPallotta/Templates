@@ -20,6 +20,7 @@ IF EXIST %file% (
         ECHO LOG_LEVEL=debug # Log Level Depth. Remove for default: 'debug' for dev and 'warn' for prod
         ECHO SECRET="%secret%"
         ECHO CACHE_TIME="2 minutes"
+        ECHO SECURE_TESTS=true # Use JWTs in Jest unit tests
     ) > %file%
     ECHO %file_name% created with default content.
 )

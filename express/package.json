@@ -1,35 +1,16 @@
 {
-  "name": "express",
-  "version": "1.0.0",
-  "description": "*Insert Description*",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon --quiet server.js",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
-  },
   "_moduleAliases": {
+    "@auth": "auth/",
+    "@errors": "errorHandling/",
+    "@log": "logging/",
     "@root": ".",
     "@routes": "endpoints/",
-    "@log": "logging/",
-    "@errors": "errorHandling/",
-    "@utils": "utils/",
-    "@auth": "auth/"
+    "@utils": "utils/"
   },
-  "keywords": [
-    "express",
-    "template",
-    "server"
-  ],
   "author": "Andrea Pallotta",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AndreaPallotta/Templates.git"
-  },
   "bugs": {
     "url": "https://github.com/AndreaPallotta/Templates/issues"
   },
-  "homepage": "https://github.com/AndreaPallotta/Templates/tree/master/express#readme",
   "dependencies": {
     "apicache": "^1.6.3",
     "compression": "^1.7.4",
@@ -44,7 +25,9 @@
     "serve-index": "^1.9.1",
     "winston": "^3.8.1"
   },
+  "description": "*Insert Description*",
   "devDependencies": {
+    "@types/jest": "^28.1.6",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^7.0.3",
@@ -54,10 +37,28 @@
     "superagent": "^8.0.0",
     "supertest": "^6.2.4"
   },
+  "homepage": "https://github.com/AndreaPallotta/Templates/tree/master/express#readme",
   "jest": {
-    "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
-    ]
-  }
+    ],
+    "testEnvironment": "node"
+  },
+  "keywords": [
+    "express",
+    "template",
+    "server"
+  ],
+  "license": "MIT",
+  "main": "server.js",
+  "name": "express",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaPallotta/Templates.git"
+  },
+  "scripts": {
+    "start": "nodemon --quiet server.js",
+    "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --detectOpenHandles --forceExit --testTimeout=10000"
+  },
+  "version": "1.0.0"
 }

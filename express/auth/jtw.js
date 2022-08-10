@@ -58,7 +58,7 @@ const generateBothJWT = (email, time, format) => {
 const validateJWT = (req, res, next) => {
     if (!JWT_SECRET) {
         Logger.error('Validating JWTs requires Secret');
-        return;
+        return HTTPError.Err(401, 'Failed to authenticate user', res);
     }
     const token = req.headers?.authorization?.split(' ')?.[1];
 

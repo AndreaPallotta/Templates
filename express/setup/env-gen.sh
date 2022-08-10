@@ -15,6 +15,7 @@ HOST=localhost # Hostname/IP. Remove for default: localhost
 LOG_LEVEL=debug # Log Level Depth. Remove for default: 'debug' for dev and 'warn' for prod
 SECRET="$secret"
 CACHE_TIME="2 minutes"
+SECURE_TESTS=true # Use JWTs in Jest unit tests
 EOT
     echo "$file_name created with default content."
 fi

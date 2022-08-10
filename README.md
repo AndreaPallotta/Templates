@@ -4,8 +4,7 @@
 
 - `ExpressJS`
 - `Socket.IO` (coming soon)
-- `ReactJS` (coming soon)
-- `Elixir` (coming soon)
-- `OpenWRT LuCI 2` (coming soon)
+- `ReactJS` (in progress)
+- `Elixir`
 
 > **_NOTE:_**  The way each template is structure is solely based of my personal preferences. There are ways to improve the code and file structure.
