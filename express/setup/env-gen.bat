@@ -2,7 +2,7 @@
 
 SET "file=%1"
 
-IF NOT DEFINED %file% SET "file=..\.env"
+IF NOT DEFINED file SET "file=..\.env"
 
 CALL :sub %file%
 EXIT /b
