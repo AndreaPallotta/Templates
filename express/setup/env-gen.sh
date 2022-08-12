@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file="../.env"
+file="${1:-../.env}"
 file_name=${file##*/}
 
 secret=$(node -e "console.log(require('crypto').randomBytes(256).toString('base64'));")

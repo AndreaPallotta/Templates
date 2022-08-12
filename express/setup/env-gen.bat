@@ -1,7 +1,6 @@
 @ECHO OFF
 
 SET "file=%1"
-
 IF NOT DEFINED file SET "file=..\.env"
 
 CALL :sub %file%
