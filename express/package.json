@@ -60,5 +60,8 @@
     "start": "nodemon --quiet server.js",
     "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --detectOpenHandles --forceExit --testTimeout=10000"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "workspaces": [
+    "express"
+  ]
 }
