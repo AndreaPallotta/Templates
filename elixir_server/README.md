@@ -1,21 +1,36 @@
-# ElixirServer
+# Elixir HTTP server template
 
-**TODO: Add description**
+## Requirements
 
-## Installation
+| Requirement | Version  |
+|-------------|----------|
+| Erlang      | 24.3.4.2 |
+| mix         | 1.13.4   |
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_server` to your list of dependencies in `mix.exs`:
+___
 
-```elixir
-def deps do
-  [
-    {:elixir_server, "~> 0.1.0"}
-  ]
-end
-```
+## Setup
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/elixir_server>.
+1. Clone the repository.
 
+    ```bash
+    git clone git@github.com:AndreaPallotta/Templates.git
+    ```
+
+2. Navigate to the express directory
+
+    ```bash
+    cd Template/express
+    ```
+
+3. Install mix dependencies
+
+    ```bash
+    mix deps.get
+    ```
+
+4. Run server
+
+    ```bash
+    mix run --no-halt
+    ```
