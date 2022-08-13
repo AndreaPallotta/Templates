@@ -41,8 +41,6 @@
     npm install
     ```
 
----
-
 ### CLI
 
 1. Run npm start from the `express` directory
@@ -50,10 +48,6 @@
     ```bash
     npm start
     ```
-
-    > Production npm commands coming soon
-
----
 
 ### DOCKER
 
@@ -140,8 +134,6 @@ To add a new folder to the paths:
         npm run tests
     ```
 
----
-
 ### Security Tests
 
 1. Install snyk
@@ -178,3 +170,35 @@ To add a new folder to the paths:
     const safe = require('safe-regex');
     safe(*regex*);
     ```
+
+---
+
+## Validation
+
+This template uses `express-validator@6.14.2` for validation.
+
+A middleware is already implemented to manage returning an error.
+However, it is possible to implement a custom validation for any route.
+
+### Add new validators
+
+#### With middleware
+
+1. Create a new file `<route-folder>/<route-folder>.validator.js`
+
+2. Add a new function that implements the middleware
+
+```js
+const { body } = require('express-validator'); // this example creates a validator for a POST request
+const validate = require('@validation/validator'); // middleware
+
+exports.validatePOST = validate([
+    body('<body param name 1>', '<error message (not required)'>).<conditions>(),
+    body('<body param name 2>', '<error message (not required)'>).<conditions>(),
+]);
+
+```
+
+#### Without middleware
+
+View [express-validator docs](https://express-validator.github.io/docs/index.html)
