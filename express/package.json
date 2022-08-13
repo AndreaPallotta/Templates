@@ -38,12 +38,6 @@
     "supertest": "^6.2.4"
   },
   "homepage": "https://github.com/AndreaPallotta/Templates/tree/master/express#readme",
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testEnvironment": "node"
-  },
   "keywords": [
     "express",
     "template",
