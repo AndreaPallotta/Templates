@@ -1,5 +1,6 @@
 const Logger = require('@log/logger');
 const HTTPError = require('@errors/HTTPError');
+const { newTokens } = require('@auth/jwt');
 
 exports.testGet = async ({ params }, res) => {
     Logger.debug(`GET /test/test-get/ params ${params}`);
@@ -7,5 +8,10 @@ exports.testGet = async ({ params }, res) => {
 };
 
 exports.testPost = async (req, res) => {
-    return res.json('Request completed');
+    try {
+        const tokens = await newTokens(req.email);
+        return res.json(tokens);
+    } catch (err) {
+        return HTTPError.Err(500, err.message, res);
+    }
 };

@@ -58,31 +58,24 @@ const generateBothJWT = (email, time, format) => {
 const validateJWT = (req, res, next) => {
     if (!JWT_SECRET) {
         Logger.error('Validating JWTs requires Secret');
-        return HTTPError.Err(401, 'Failed to authenticate user', res);
+        return HTTPError.Err(401, 'Failed to authenticate JWT', res);
     }
     const token = req.headers?.authorization?.split(' ')?.[1];
 
     if (!token) {
-        Logger.error('401: Failed to authenticate user');
-        return HTTPError.Err(401, 'Failed to authenticate user', res);
+        Logger.error('401: Failed to authenticate JWT');
+        return HTTPError.Err(401, 'Failed to authenticate JWT', res);
     }
 
     jwt.verify(token, JWT_SECRET, (err, user) => {
         if (err) {
-            Logger.error('403: Failed to authenticate user');
-            return HTTPError.Err(403, 'Failed to authenticate user', res);
+            Logger.error(`403: ${err.message}`);
+            return HTTPError.Err(403, err.message, res);
         }
 
-        if (!user) {
-            Logger.error('404: Failed to retrieve user information');
-            return HTTPError.Err(
-                404,
-                'Failed to retrieve user information',
-                res
-            );
-        }
-
-        req.user = user;
+        req.userId = user.email;
+        req.tokenExp = user.exp;
+        req.authToken = token;
 
         next();
     });

@@ -10,6 +10,26 @@
 
 ---
 
+## Features
+
+- JWT generation (auth and refresh tokens) and validation (as middleware)
+- Rate limiter
+- Custom HTTP errors messages
+- Custom Logger
+  - Log to console with different colors
+  - Log to file `./logs/*`
+  - Selectable log level in `.env`
+- Default `.env` file generated with setup scripts `./setup/env-gen.*`
+- Jest unit tests
+- Caching requests
+  - Customizable in `.env`
+- `express-validator` validation middleware
+- Basic docker integration
+- Hot reload with `nodemon`
+- Absolute paths
+
+---
+
 ## How to run the code
 
 ### Setup
@@ -107,11 +127,17 @@ Within the application, you can see that most of the imports are absolute (i.e. 
 
 To add a new folder to the paths:
 
-1. Open package.json
-2. Locate the `_moduleAliases` section (below the `scripts` object).
-3. Add a new entry where:
-   - The key is the `@<path-keyword>`. For example `@log` is the alias for the `logging` folder.
+1. Open `package.json`
+2. Locate the `_moduleAliases` object (below the `scripts` object)
+3. Add a new entry with the following format `"<alias>": "<folder-name>/"`:
+   - The key is the `<alias>`. For example `@log` is the alias for the `logging` folder
    - The value is the relative path to the folder. For example `logging/` refers to `express/logging`.
+4. Open `jest.config.js`
+5. Locate the `moduleNameMapper` object
+6. Add a new entry similar to the `package.json` one with the following format `'<alias>/(.*)': "'<rootDir>/<folder-name>/$1"`:
+
+**_NOTE:_**
+`<alias>` and `<folder-name>` need to match the ones in `package.json`. Otherwise, if the folder is used in a test file, the tests will fail!
 
 ---
 
