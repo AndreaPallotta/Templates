@@ -39,6 +39,7 @@
   "_moduleAliases": {
     "@root": ".",
     "@utils": "utils/",
-    "@log": "logging/"
+    "@log": "logging/",
+    "@mid": "middleware/"
   }
 }

@@ -6,8 +6,8 @@ const stream = {
     write: (message) => Logger.http(message),
 };
 
-const skip = () => {
-    return !isDev;
+const skip = (_, res) => {
+    return isDev ? false : res.statusCode < 400;
 };
 
 const morganMid = morgan(

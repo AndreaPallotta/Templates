@@ -3,11 +3,22 @@ const app = express();
 const server = require('http').Server(app);
 const socketio = require('socket.io');
 const { serverConfig } = require('@utils/env.config');
+const authMid = require('@mid/auth');
+const Logger = require('@log/logger');
 
-const socket = socketio(server, {
+const io = socketio(server, {
     cors: {
         origin: [serverConfig.ORIGIN],
     },
+});
+
+io.use(authMid);
+io.on('connection', (socket) => {
+    socket.emit('test', []);
+
+    socket.on('disconnect', () => {
+        Logger.debug('disconnected', socket.id);
+    });
 });
 
 app.use('/public', express.static('public'));
@@ -23,5 +34,5 @@ app.options('*', (_, res) => {
  * 2. app.use('root-endpoint', <routes>)
  */
 
-exports.socket = socket;
+exports.io = io;
 exports.server = server;
