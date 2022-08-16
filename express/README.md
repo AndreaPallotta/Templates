@@ -216,7 +216,7 @@ However, it is possible to implement a custom validation for any route.
 
 ```js
 const { body } = require('express-validator'); // this example creates a validator for a POST request
-const validate = require('@validation/validator'); // middleware
+const validate = require('@utils/validator'); // middleware
 
 exports.validatePOST = validate([
     body('<body param name 1>', '<error message (not required)'>).<conditions>(),

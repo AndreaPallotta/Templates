@@ -1,4 +1,4 @@
-const validate = require('@validation/validator');
+const validate = require('@utils/validator');
 const { param, body } = require('express-validator');
 
 exports.validateGET = validate([param('username').not().isEmpty()]);
