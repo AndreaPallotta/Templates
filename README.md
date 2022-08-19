@@ -2,10 +2,10 @@
 
 ## This repository contains a list of templates for Web Development frameworks
 
-- `ExpressJS`
-- `Socket.IO` (in progress)
-- `ReactJS` (in progress)
-- `Elixir`
+* `ExpressJS`
+* `Socket.IO`
+* `ReactJS`
+* `Elixir`
 
 ---
 
