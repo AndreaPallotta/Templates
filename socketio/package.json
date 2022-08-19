@@ -40,6 +40,8 @@
     "@root": ".",
     "@utils": "utils/",
     "@log": "logging/",
-    "@mid": "middleware/"
+    "@mid": "middleware/",
+    "@events": "events/",
+    "@stores": "stores/"
   }
 }
