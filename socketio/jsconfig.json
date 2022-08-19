@@ -9,7 +9,7 @@
       "target": "ES6",
       "baseUrl": ".",
       "paths": {
-        "@utils/*": ["utils/*"],
+        "@utils/*": ["./utils/*"],
         "@log/*": ["./logging/*"],
         "@mid/*": ["./middleware/*"],
         "@events/*": ["./events/*"],

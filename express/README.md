@@ -123,21 +123,36 @@
 
 ## How to add new absolute paths
 
-Within the application, you can see that most of the imports are absolute (i.e. `require(@<path-keyword>/)`).
+Within the application, you can see that absolute paths are implemented (i.e. `require(@<path-keyword>/)`).
 
-To add a new folder to the paths:
+### To add a new folder to the paths
 
 1. Open `package.json`
 2. Locate the `_moduleAliases` object (below the `scripts` object)
-3. Add a new entry with the following format `"<alias>": "<folder-name>/"`:
+3. Add a new entry with the following format: `"<alias>": "<folderName>/"`:
    - The key is the `<alias>`. For example `@log` is the alias for the `logging` folder
-   - The value is the relative path to the folder. For example `logging/` refers to `express/logging`.
+   - The value is the relative path to the folder. For example `logging/` refers to `./logging`.
+&nbsp;
+
 4. Open `jest.config.js`
 5. Locate the `moduleNameMapper` object
-6. Add a new entry similar to the `package.json` one with the following format `'<alias>/(.*)': "'<rootDir>/<folder-name>/$1"`:
+6. Add a new entry with the following format: `'<alias>/(.*)': "'<rootDir>/<folderName>/$1"`.
+   - `<rootDir>` is the path to the folder (default: `./`)
+&nbsp;
+
+7. Open `jsonconfig.json`.
+8. Under `compilerOptions[path]` add a new entry with the following format: `"<alias>/*": ["<rootDir>/<folderName>/*"]`
+
+#### Variables Table (if explaination above is not clear)
+
+| Variable         | Description                     | Example |
+|------------------|---------------------------------|---------|
+| **alias**      | The name of the absolute import | @log    |
+| **rootDir**    | The path to the target folder   | ./      |
+| **folderName** | The target folder name          | logging |
 
 **_NOTE:_**
-`<alias>` and `<folder-name>` need to match the ones in `package.json`. Otherwise, if the folder is used in a test file, the tests will fail!
+`<alias>` `<rootDir>`, and `<folderName>` need to be the same for each new declaration. Otherwise, there might be inconsistencies and unwanted issues.
 
 ---
 
