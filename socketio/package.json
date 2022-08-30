@@ -1,0 +1,47 @@
+{
+  "name": "socketio",
+  "version": "1.0.0",
+  "description": "NodeJS Socket.io Template",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaPallotta/Templates.git"
+  },
+  "keywords": [
+    "socketio",
+    "template",
+    "server"
+  ],
+  "author": "Andrea Pallotta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndreaPallotta/Templates/issues"
+  },
+  "homepage": "https://github.com/AndreaPallotta/Templates#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "module-alias": "^2.2.2",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.7",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.22.0",
+    "jest": "^28.1.3",
+    "nodemon": "^2.0.19",
+    "superagent": "^8.0.0",
+    "supertest": "^6.2.4"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@utils": "utils/",
+    "@log": "logging/",
+    "@mid": "middleware/",
+    "@events": "events/",
+    "@stores": "stores/"
+  }
+}

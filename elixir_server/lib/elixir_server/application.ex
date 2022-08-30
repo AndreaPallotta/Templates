@@ -5,8 +5,11 @@ defmodule ElixirServer.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {Plug.Cowboy,
-       scheme: :http, plug: ElixirServer.Router, options: [ip: get_hostname(), port: get_port()]}
+      {
+        Plug.Cowboy,
+        # adding ip option does not seem to work
+        scheme: :http, plug: ElixirServer.Router, options: [port: get_port()]
+      }
     ]
 
     opts = [strategy: :one_for_one, name: ElixirServer.Supervisor]

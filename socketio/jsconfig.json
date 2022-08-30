@@ -1,0 +1,20 @@
+{
+    "typeAcquisition": {
+      "include": [
+        "jest"
+      ]
+    },
+    "compilerOptions": {
+      "module": "CommonJS",
+      "target": "ES6",
+      "baseUrl": ".",
+      "paths": {
+        "@utils/*": ["./utils/*"],
+        "@log/*": ["./logging/*"],
+        "@mid/*": ["./middleware/*"],
+        "@events/*": ["./events/*"],
+        "@stores/*": ["./stores/*"]
+      }
+    },
+    "exclude": ["node_modules", "build"]
+  }

@@ -3,5 +3,19 @@
         "include": [
             "jest"
         ]
-    }
+    },
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ES6",
+        "baseUrl": ".",
+        "paths": { // DO NOT ADD @root
+          "@auth/*": ["./auth/*"],
+          "@errors/*": ["./errorHandling/*"],
+          "@log/*": ["./logging/*"],
+          "@routes/*": ["./endpoints/*"],
+          "@utils/*": ["./utils/*"],
+          "@validation/*": ["./validation/*"]
+        }
+      },
+      "exclude": ["node_modules", "build"]
 }

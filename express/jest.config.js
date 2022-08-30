@@ -7,5 +7,6 @@ module.exports = {
         '@root/(.*)': '<rootDir>/$1',
         '@routes/(.*)': '<rootDir>/endpoints/$1',
         '@utils/(.*)': '<rootDir>/utils/$1',
+        '@validation/(.*)': "'<rootDir>/validation/$1",
     },
 };

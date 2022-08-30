@@ -10,6 +10,26 @@
 
 ---
 
+## Features
+
+- JWT generation (auth and refresh tokens) and validation (as middleware)
+- Rate limiter
+- Custom HTTP errors messages
+- Custom Logger
+  - Log to console with different colors
+  - Log to file `./logs/*`
+  - Selectable log level in `.env`
+- Default `.env` file generated with setup scripts `./setup/env-gen.*`
+- Jest unit tests
+- Caching requests
+  - Customizable in `.env`
+- `express-validator` validation middleware
+- Basic docker integration
+- Hot reload with `nodemon`
+- Absolute paths
+
+---
+
 ## How to run the code
 
 ### Setup
@@ -41,8 +61,6 @@
     npm install
     ```
 
----
-
 ### CLI
 
 1. Run npm start from the `express` directory
@@ -50,10 +68,6 @@
     ```bash
     npm start
     ```
-
-    > Production npm commands coming soon
-
----
 
 ### DOCKER
 
@@ -109,15 +123,36 @@
 
 ## How to add new absolute paths
 
-Within the application, you can see that most of the imports are absolute (i.e. `require(@<path-keyword>/)`).
+Within the application, you can see that absolute paths are implemented (i.e. `require(@<path-keyword>/)`).
 
-To add a new folder to the paths:
+### To add a new folder to the paths
 
-1. Open package.json
-2. Locate the `_moduleAliases` section (below the `scripts` object).
-3. Add a new entry where:
-   - The key is the `@<path-keyword>`. For example `@log` is the alias for the `logging` folder.
-   - The value is the relative path to the folder. For example `logging/` refers to `express/logging`.
+1. Open `package.json`
+2. Locate the `_moduleAliases` object (below the `scripts` object)
+3. Add a new entry with the following format: `"<alias>": "<folderName>/"`:
+   - The key is the `<alias>`. For example `@log` is the alias for the `logging` folder
+   - The value is the relative path to the folder. For example `logging/` refers to `./logging`.
+&nbsp;
+
+4. Open `jest.config.js`
+5. Locate the `moduleNameMapper` object
+6. Add a new entry with the following format: `'<alias>/(.*)': "'<rootDir>/<folderName>/$1"`.
+   - `<rootDir>` is the path to the folder (default: `./`)
+&nbsp;
+
+7. Open `jsonconfig.json`.
+8. Under `compilerOptions[path]` add a new entry with the following format: `"<alias>/*": ["<rootDir>/<folderName>/*"]`
+
+#### Variables Table (if explaination above is not clear)
+
+| Variable         | Description                     | Example |
+|------------------|---------------------------------|---------|
+| **alias**      | The name of the absolute import | @log    |
+| **rootDir**    | The path to the target folder   | ./      |
+| **folderName** | The target folder name          | logging |
+
+**_NOTE:_**
+`<alias>` `<rootDir>`, and `<folderName>` need to be the same for each new declaration. Otherwise, there might be inconsistencies and unwanted issues.
 
 ---
 
@@ -139,8 +174,6 @@ To add a new folder to the paths:
     ```bash
         npm run tests
     ```
-
----
 
 ### Security Tests
 
@@ -178,3 +211,35 @@ To add a new folder to the paths:
     const safe = require('safe-regex');
     safe(*regex*);
     ```
+
+---
+
+## Validation
+
+This template uses `express-validator@6.14.2` for validation.
+
+A middleware is already implemented to manage returning an error.
+However, it is possible to implement a custom validation for any route.
+
+### Add new validators
+
+#### With middleware
+
+1. Create a new file `<route-folder>/<route-folder>.validator.js`
+
+2. Add a new function that implements the middleware
+
+```js
+const { body } = require('express-validator'); // this example creates a validator for a POST request
+const validate = require('@utils/validator'); // middleware
+
+exports.validatePOST = validate([
+    body('<body param name 1>', '<error message (not required)'>).<conditions>(),
+    body('<body param name 2>', '<error message (not required)'>).<conditions>(),
+]);
+
+```
+
+#### Without middleware
+
+View [express-validator docs](https://express-validator.github.io/docs/index.html)
