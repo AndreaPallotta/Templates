@@ -3,20 +3,21 @@ import { useState } from 'react';
 const useBoolean = () => {
   const [state, setState] = useState(false);
 
-  const handleSetState = (state) => {
-    if (state !== undefined) {
-      setState(state === true);
+  const handleSetState = (newState) => {
+    if (newState !== undefined) {
+      setState(newState === true);
+    } else {
+      setState((prevState) => !prevState);
     }
-    setState((prev) => !prev);
   };
 
-  const toggle = (state, callback) => {
+  const toggle = (newState, callback) => {
     if (callback) {
       callback().then(() => {
-        handleSetState(state);
+        handleSetState(newState);
       });
     }
-    setState;
+    handleSetState(newState);
   };
 
   return [state, toggle];
