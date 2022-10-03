@@ -1,10 +1,9 @@
 const Logger = require('@log/logger');
-const HTTPError = require('@errors/HTTPError');
 const { newTokens } = require('@auth/jwt');
 
 exports.testGet = async ({ params }, res) => {
     Logger.debug(`GET /test/test-get/ params ${params}`);
-    return HTTPError.Err(404, 'Data not found', res);
+    return res.status(404).send({ error: 'Data not found' });
 };
 
 exports.testPost = async (req, res) => {
@@ -12,6 +11,6 @@ exports.testPost = async (req, res) => {
         const tokens = await newTokens(req.email);
         return res.json(tokens);
     } catch (err) {
-        return HTTPError.Err(500, err.message, res);
+        return res.status(500).send({ error: err.message });
     }
 };
