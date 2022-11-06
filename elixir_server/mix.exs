@@ -23,7 +23,7 @@ defmodule ElixirServer.MixProject do
   defp deps do
     [
       {:plug_cowboy, "~> 2.0"},
-      {:net_address, "~> 0.2.0"}
+      {:net_address, "~> 0.3.0"}
     ]
   end
 end
