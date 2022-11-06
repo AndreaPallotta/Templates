@@ -1,0 +1,54 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/express'
+    schedule:
+      interval: 'weekly'
+      day: 'sunday'
+      time: '10:00'
+    commit-message:
+      prefix: 'npm express -'
+    labels:
+      - 'npm'
+      - 'dependencies'
+    reviewers:
+      - 'AndreaPallotta'
+
+  - package-ecosystem: 'npm'
+    directory: '/react'
+    schedule:
+      interval: 'weekly'
+      day: 'sunday'
+    commit-message:
+      prefix: 'npm react -'
+    labels:
+      - 'npm'
+      - 'dependencies'
+    reviewers:
+      - 'AndreaPallotta'
+
+  - package-ecosystem: 'npm'
+    directory: '/socketio'
+    schedule:
+      interval: 'weekly'
+      day: 'sunday'
+    commit-message:
+      prefix: 'npm socketio -'
+    labels:
+      - 'npm'
+      - 'dependencies'
+    reviewers:
+      - 'AndreaPallotta'
+
+  - package-ecosystem: 'mix'
+    directory: '/elixir_server'
+    schedule:
+      interval: 'weekly'
+      day: 'sunday'
+    commit-message:
+      prefix: 'mix elixir -'
+    labels:
+      - 'mix'
+      - 'dependencies'
+    reviewers:
+      - 'AndreaPallotta'
