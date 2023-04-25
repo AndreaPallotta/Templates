@@ -2,10 +2,11 @@
 
 ## This repository contains a list of templates for Web Development frameworks
 
-* `ExpressJS`
-* `Socket.IO`
-* `ReactJS`
-* `Elixir`
+- `ExpressJS`
+- `Socket.IO`
+- `ReactJS`
+- `Elixir`
+- `Rust`
 
 ---
 
@@ -22,4 +23,4 @@ Look at the README for the template you want to use for information
 ---
 
 > **_NOTE:_**
-The way each template is structure is solely based of my personal preferences. There are ways to improve the code and file structure.
+> The way each template is structure is solely based of my personal preferences. There are ways to improve the code and file structure.
